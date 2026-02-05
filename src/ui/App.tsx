@@ -151,22 +151,22 @@ const App: React.FC = () => {
                 onOk={() => setModalOpen(false)}
                 onCancel={() => setModalOpen(false)}
                 centered
+                width={500}
                 styles={{
-                    mask: { backdropFilter: 'none', backgroundColor: 'rgba(0,0,0,0.6)' },
-                    body: { padding: '4px 0' }
+                    mask: { backdropFilter: 'none', backgroundColor: 'rgba(0,0,0,0.7)' },
                 }}
                 footer={[
                     <Button key="close" variant="filled" color="default" onClick={() => setModalOpen(false)}>Close</Button>,
                     <Button key="apply" type="primary" onClick={() => { setModalOpen(false); handleApply(); }}>Apply now</Button>
                 ]}
             >
-                <div className="custom-scroll" style={{ maxHeight: '320px', paddingRight: '4px' }}>
+                <div className="preview-list custom-scroll">
                     {previewData.map((page, idx) => (
-                        <div key={idx} style={{ padding: '6px 8px', borderBottom: '1px solid #383838', display: 'flex', gap: '8px' }}>
-                            <Text style={{ color: '#888', width: '20px' }}>{idx + 1}</Text>
-                            <Text type={page.startsWith('-') ? 'secondary' : undefined}>
+                        <div key={idx} className="preview-item">
+                            <span className="preview-index">{idx + 1}</span>
+                            <span className={`preview-name ${page.startsWith('---') || page === page.toUpperCase() ? 'is-section' : ''}`}>
                                 {page}
-                            </Text>
+                            </span>
                         </div>
                     ))}
                 </div>

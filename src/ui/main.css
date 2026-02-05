@@ -144,29 +144,73 @@ body {
 .ant-modal-content {
   background-color: #2C2C2C !important;
   color: #FFFFFF !important;
-  padding: 20px !important;
+  padding: 0 !important;
+  /* Reset padding for cleaner layout */
   border-radius: 8px !important;
+  border: 1px solid #383838;
+  overflow: hidden;
 }
-
 
 .ant-modal-header {
   background-color: #2C2C2C !important;
-  border-bottom: none !important;
-  margin-bottom: 16px !important;
+  border-bottom: 1px solid #383838 !important;
+  margin-bottom: 0 !important;
+  padding: 16px 20px !important;
 }
 
-.ant-modal-title {
-  color: #FFFFFF !important;
-  font-size: 14px !important;
-  font-weight: 500 !important;
-}
-
-.ant-modal-close {
-  color: #888 !important;
+.ant-modal-body {
+  padding: 0 !important;
 }
 
 .ant-modal-footer {
   border-top: 1px solid #383838 !important;
-  padding-top: 16px !important;
-  margin-top: 16px !important;
+  margin-top: 0 !important;
+  padding: 12px 20px !important;
+  background-color: #2C2C2C;
+}
+
+/* Preview List - Grid System */
+.preview-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.preview-item {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  /* Fixed index, flexible content */
+  gap: 16px;
+  padding: 10px 20px;
+  border-bottom: 1px solid #333;
+  align-items: center;
+  transition: background-color 0.2s;
+}
+
+.preview-item:last-child {
+  border-bottom: none;
+}
+
+.preview-item:hover {
+  background-color: #333;
+}
+
+.preview-index {
+  color: #666;
+  text-align: right;
+  font-family: 'Inter', monospace;
+  /* Tabular alignment */
+  font-size: 11px;
+}
+
+.preview-name {
+  color: #E0E0E0;
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.preview-name.is-section {
+  color: #888;
+  font-style: italic;
 }
