@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #2C2C2C;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+#root {
+  height: 100%;
+}
+
+.app-container {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  /* Body and Footer */
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* Two symmetric columns */
+  grid-template-rows: 100%;
+  /* Fill available height */
+  gap: 12px;
+  padding: 12px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.column-layout {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  /* Title and Textarea */
+  gap: 8px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 0 12px 12px 12px;
+  box-sizing: border-box;
+}
+
+/* Custom Minimalist Scrollbar - Webkit */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #171717;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #333;
+}
+
+/* Hide buttons (arrows) */
+::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Firefox */
+.custom-scroll {
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #171717 transparent;
+}
+
+/* Custom Inputs to match specs */
+.custom-textarea textarea {
+  background-color: #383838 !important;
+  border: 1px solid transparent !important;
+  color: #FFFFFF !important;
+  font-size: 12px !important;
+  font-family: 'Inter', sans-serif !important;
+  border-radius: 4px !important;
+  padding: 8px !important;
+  transition: border-color 0.2s ease !important;
+}
+
+.custom-textarea textarea:hover {
+  border-color: #444444 !important;
+}
+
+.custom-textarea textarea:focus,
+.custom-textarea textarea:active {
+  border-color: #0C8CE9 !important;
+  box-shadow: none !important;
+}
+
+/* ReadOnly variation */
+.readonly-textarea textarea {
+  background-color: #1E1E1E !important;
+  border-color: transparent !important;
+  color: #757575 !important;
+}
+
+/* Modal Styling */
+.ant-modal-content {
+  background-color: #2C2C2C !important;
+  color: #FFFFFF !important;
+  padding: 20px !important;
+  border-radius: 8px !important;
+}
+
+.ant-modal-header {
+  background-color: #2C2C2C !important;
+  border-bottom: none !important;
+  margin-bottom: 16px !important;
+}
+
+.ant-modal-title {
+  color: #FFFFFF !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+}
+
+.ant-modal-close {
+  color: #888 !important;
+}
+
+.ant-modal-footer {
+  border-top: 1px solid #383838 !important;
+  padding-top: 16px !important;
+  margin-top: 16px !important;
+}
