@@ -140,19 +140,6 @@ body {
   flex: none !important;
 }
 
-/* Smart Sort Secondary Blue: Primary color but lighter background */
-.btn-smart-sort-secondary {
-  background-color: #0C8CE933 !important;
-  /* 20% opacity blue */
-  color: #0C8CE9 !important;
-  border: none !important;
-}
-
-.btn-smart-sort-secondary:hover {
-  background-color: #0C8CE94D !important;
-  /* 30% opacity */
-}
-
 /* Modal Styling */
 .ant-modal-content {
   background-color: #2C2C2C !important;

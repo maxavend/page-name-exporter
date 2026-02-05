@@ -128,7 +128,8 @@ const App: React.FC = () => {
                     {/* Right Group: Smart Sort & Apply Order */}
                     <div className="footer-right-group">
                         <Button
-                            className="btn-smart-sort-secondary"
+                            variant="filled"
+                            color="default"
                             onClick={handleSmartSort}
                         >
                             Smart sort
