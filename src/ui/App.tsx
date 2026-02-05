@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ConfigProvider, theme, Typography, Input, Button, Modal, message } from 'antd';
+import { ConfigProvider, theme, Typography, Input, Button, message } from 'antd';
 import { sortPagesSmartly } from '../utils/smartSort';
 import './main.css';
 
@@ -9,8 +9,6 @@ const { Text } = Typography;
 const App: React.FC = () => {
     const [currentList, setCurrentList] = useState<string[]>([]);
     const [targetList, setTargetList] = useState<string>('');
-    const [modalOpen, setModalOpen] = useState(false);
-    const [previewData, setPreviewData] = useState<string[]>([]);
 
     useEffect(() => {
         window.onmessage = (event) => {
@@ -36,12 +34,6 @@ const App: React.FC = () => {
         const sorted = sortPagesSmartly(lines);
         setTargetList(sorted.join('\n'));
         message.info('Smart sort applied');
-    };
-
-    const handlePreview = () => {
-        const lines = targetList.split('\n').filter(l => l.trim() !== '');
-        setPreviewData(lines);
-        setModalOpen(true);
     };
 
     const handleApply = () => {
@@ -115,16 +107,7 @@ const App: React.FC = () => {
                 </div>
 
                 {/* Footer with Divider and Hug content buttons */}
-                <div className="footer-container">
-                    {/* Left: Preview (color=default, variant=filled) */}
-                    <Button
-                        variant="filled"
-                        color="default"
-                        onClick={handlePreview}
-                    >
-                        Preview
-                    </Button>
-
+                <div className="footer-container" style={{ justifyContent: 'flex-end' }}>
                     {/* Right Group: Smart Sort & Apply Order */}
                     <div className="footer-right-group">
                         <Button
@@ -144,33 +127,6 @@ const App: React.FC = () => {
                 </div>
 
             </div>
-
-            <Modal
-                title="Preview reorder"
-                open={modalOpen}
-                onOk={() => setModalOpen(false)}
-                onCancel={() => setModalOpen(false)}
-                centered
-                width={500}
-                styles={{
-                    mask: { backdropFilter: 'none', backgroundColor: 'rgba(0,0,0,0.7)' },
-                }}
-                footer={[
-                    <Button key="close" variant="filled" color="default" onClick={() => setModalOpen(false)}>Close</Button>,
-                    <Button key="apply" type="primary" onClick={() => { setModalOpen(false); handleApply(); }}>Apply now</Button>
-                ]}
-            >
-                <div className="preview-list custom-scroll">
-                    {previewData.map((page, idx) => (
-                        <div key={idx} className="preview-item">
-                            <span className="preview-index">{idx + 1}</span>
-                            <span className={`preview-name ${page.startsWith('---') || page === page.toUpperCase() ? 'is-section' : ''}`}>
-                                {page}
-                            </span>
-                        </div>
-                    ))}
-                </div>
-            </Modal>
 
         </ConfigProvider>
     );

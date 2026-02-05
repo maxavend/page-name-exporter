@@ -35,24 +35,31 @@ function reorderPages(newNames: string[]) {
     const nameMap = new Map<string, PageNode[]>();
 
     for (const page of currentPages) {
-        if (!nameMap.has(page.name)) {
-            nameMap.set(page.name, []);
+        // Normalize name for matching (trim whitespace)
+        const normalizedName = page.name.trim();
+        if (!nameMap.has(normalizedName)) {
+            nameMap.set(normalizedName, []);
         }
-        nameMap.get(page.name)!.push(page as PageNode);
+        nameMap.get(normalizedName)!.push(page as PageNode);
     }
 
     // 3. Reorder & Create
     let currentIndex = 0;
-    for (const name of newNames) {
-        if (!name.trim()) continue; // Skip empty lines
+    for (const rawName of newNames) {
+        const name = rawName.trim();
+        if (!name) continue; // Skip empty lines
 
         const nodes = nameMap.get(name);
 
         if (nodes && nodes.length > 0) {
-            // CASE A: Page exists
-            // Take the first available node for this name
+            // CASE A: Page exists (matched by trimmed name)
             const pageToMove = nodes.shift()!;
             figma.root.insertChild(currentIndex, pageToMove);
+
+            // Update name to strictly match input (fix spacing/case if needed)
+            if (pageToMove.name !== name) {
+                pageToMove.name = name;
+            }
             currentIndex++;
         } else {
             // CASE B: Page does not exist -> Create it
@@ -64,10 +71,8 @@ function reorderPages(newNames: string[]) {
     }
 
     // 4. Handle remaining pages (Not in newNames)
-    // They are naturally at the end because we only touched indices 0 to (newNames.length - 1).
-    // The loop above inserted matching/new pages at the top.
     // Existing pages that were NOT moved are now at indices >= currentIndex.
-    // So "everything that doesn't match goes to the end" is satisfied implicitly.
+    // They remain there (at the end).
 }
 
 function restoreOrder(ids: string[]) {
