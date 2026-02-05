@@ -119,6 +119,40 @@ body {
   color: #757575 !important;
 }
 
+.footer-container {
+  border-top: 1px solid #383838;
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2C2C2C;
+}
+
+.footer-right-group {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Hug content buttons */
+.footer-container button {
+  width: auto !important;
+  flex: none !important;
+}
+
+/* Smart Sort Secondary Blue: Primary color but lighter background */
+.btn-smart-sort-secondary {
+  background-color: #0C8CE933 !important;
+  /* 20% opacity blue */
+  color: #0C8CE9 !important;
+  border: none !important;
+}
+
+.btn-smart-sort-secondary:hover {
+  background-color: #0C8CE94D !important;
+  /* 30% opacity */
+}
+
 /* Modal Styling */
 .ant-modal-content {
   background-color: #2C2C2C !important;
@@ -126,6 +160,7 @@ body {
   padding: 20px !important;
   border-radius: 8px !important;
 }
+
 
 .ant-modal-header {
   background-color: #2C2C2C !important;

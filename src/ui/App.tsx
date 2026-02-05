@@ -94,16 +94,8 @@ const App: React.FC = () => {
 
                     {/* Target Structure Column */}
                     <div className="column-layout">
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingLeft: '4px' }}>
+                        <div style={{ paddingLeft: '4px' }}>
                             <Text strong>Target structure</Text>
-                            <Button
-                                type="primary"
-                                variant="filled"
-                                size="small"
-                                onClick={handleSmartSort}
-                            >
-                                Smart sort
-                            </Button>
                         </div>
                         <div className="custom-scroll" style={{ backgroundColor: '#383838', borderRadius: '4px' }}>
                             <TextArea
@@ -122,8 +114,9 @@ const App: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Footer */}
-                <div className="footer-grid">
+                {/* Footer with Divider and Hug content buttons */}
+                <div className="footer-container">
+                    {/* Left: Preview (color=default, variant=filled) */}
                     <Button
                         variant="filled"
                         color="default"
@@ -131,12 +124,22 @@ const App: React.FC = () => {
                     >
                         Preview
                     </Button>
-                    <Button
-                        type="primary"
-                        onClick={handleApply}
-                    >
-                        Apply reorder
-                    </Button>
+
+                    {/* Right Group: Smart Sort & Apply Order */}
+                    <div className="footer-right-group">
+                        <Button
+                            className="btn-smart-sort-secondary"
+                            onClick={handleSmartSort}
+                        >
+                            Smart sort
+                        </Button>
+                        <Button
+                            type="primary"
+                            onClick={handleApply}
+                        >
+                            Apply reorder
+                        </Button>
+                    </div>
                 </div>
 
             </div>

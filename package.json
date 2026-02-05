@@ -1,5 +1,5 @@
 {
-  "name": "figma-page-topology-manager",
+  "name": "page-name-exporter",
   "version": "1.0.0",
   "description": "Figma Page Topology Manager (Exporter & Smart Organizer)",
   "main": "dist/code.js",

@@ -1,5 +1,5 @@
 {
-  "name": "Figma Page Topology Manager",
+  "name": "Page Name Exporter",
   "id": "1601230040122507603",
   "api": "1.0.0",
   "main": "dist/code.js",
